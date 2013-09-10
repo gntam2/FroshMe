@@ -1,0 +1,24 @@
+!!!
+%html
+  %head
+    %title Frosh Me
+    = stylesheet_link_tag    "application", media: "all", "data-turbolinks-track" => true
+    = javascript_include_tag "application", "data-turbolinks-track" => true
+    = csrf_meta_tags
+  %body
+    %h1 Welcome To Frosh!
+    -if flash.present?
+      -flash.each do |flash|
+        =flash[0]
+        \:
+        =flash[1]
+        %br
+    -if current_user
+      =link_to "Sign Out", destroy_user_session_path, method: :delete
+    -else
+      =link_to "Sign In", new_user_session_path 
+      |
+      =link_to "Sign In With Facebook", user_omniauth_authorize_path(:facebook)
+      |
+      =link_to "Sign Up", new_user_registration_path
+    = yield
