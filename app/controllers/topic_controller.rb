@@ -1,5 +1,6 @@
 class TopicController < ApplicationController
   def new
+
   end
 
   def index
