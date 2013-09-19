@@ -6,6 +6,7 @@ class InstitutionController < ApplicationController
   end
 
   def show
+    @institution = Institution.find(params[:id])
   end
 
   def edit
@@ -18,5 +19,6 @@ class InstitutionController < ApplicationController
   end
 
   def index
+    @institutions = Institution.all 
   end
 end

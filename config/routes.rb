@@ -2,8 +2,11 @@ FroshMe::Application.routes.draw do
 
   root :to => "welcome#index"
 
-  resources :institution
-  resources :topic
+  resources :institution do 
+    resources :topic
+  end
+
+  get "follow" => "users_topics#follow"
 
   devise_for :users, controllers: {omniauth_callbacks: "omniauth_callbacks"}
   # The priority is based upon order of creation: first created -> highest priority.

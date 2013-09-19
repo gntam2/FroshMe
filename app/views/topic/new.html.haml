@@ -1,12 +1,12 @@
 %h2 Create a New Discussion Topic 
 -if !current_user.nil?
-	=form_for Topics.new, :url => "/topic" do |f|
+	=form_for Topic.new, :url => "/institution/1/topic" do |f|
 		=f.label :Name
 		=f.text_field :name
 		%br 
 		%br
 		=f.label :Institution 
-		=collection_select(:topics, :institution_id, Institution.all, :id, :name)
+		=collection_select(:topic, :institution_id, Institution.all, :id, :name)
 		%br
 		%br
 		=f.submit

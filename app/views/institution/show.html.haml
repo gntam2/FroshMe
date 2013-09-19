@@ -1,2 +1,5 @@
-%h1 Institution#show
-%p Find me in app/views/institution/show.html.haml
+%h1=@institution.name
+%h2 This University has the following topics
+-@institution.topics.each do |topics|
+	%a{:href => "/institution/#{topics.institution_id}/topic/#{topics.id}"}=topics.name
+	%br

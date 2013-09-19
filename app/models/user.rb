@@ -1,6 +1,6 @@
 class User < ActiveRecord::Base
 
-	has_many :users_topics
+	has_many :users_topics, foreign_key: "user_id"
 	has_many :topics, through: :users_topics
 
   # Include default devise modules. Others available are:

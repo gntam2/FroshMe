@@ -1,2 +1,5 @@
-%h1 Topic#index
-%p Find me in app/views/topic/index.html.haml
+%h1 Listing All Topics
+-@topics.each do |topic|
+	%a{:href => "/institution/#{topic.institution_id}/topic/#{topic.id}"}=topic.name
+	=link_to :Follow, follow_path(:query => "#{topic.id}")
+	%br

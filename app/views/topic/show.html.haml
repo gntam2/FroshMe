@@ -1,2 +1,2 @@
-%h1 Topic#show
-%p Find me in app/views/topic/show.html.haml
+%h1=@topic.name
+=link_to :Follow, follow_path(:query => "#{@topic.id}")
