@@ -1,25 +1,32 @@
 !!!
 %html
   %head
-    %title Frosh Me
-    = stylesheet_link_tag    "application", media: "all", "data-turbolinks-track" => true
-    = javascript_include_tag "application", "data-turbolinks-track" => true
-    = csrf_meta_tags
-  %body
-    %h1 Welcome To Frosh!
-    -if flash.present?
-      -flash.each do |flash|
-        =flash[0]
-        \:
-        =flash[1]
-        %br
-    %ul
-      %li=link_to "Home", root_path
-      %li=link_to "Universities", institution_index_path
-      -if current_user
-        %li=link_to "Sign Out", destroy_user_session_path, method: :delete
-      -else
-        %li=link_to "Sign In", new_user_session_path 
-        %li=link_to "Sign In With Facebook", user_omniauth_authorize_path(:facebook)
-        %li=link_to "Sign Up", new_user_registration_path
-    = yield
+    %title FroshMe
+    =stylesheet_link_tag "application", media: "all", "data-turbolinks-track" => true
+    =stylesheet_link_tag "application", "data-turbolinks-track" => true
+    =csrf_meta_tags
+  %body 
+    .row
+      .span8.offset2
+        %h1 Welcome to Frosh
+        -if !flash[:notice].nil?
+          .alert=flash[:notice]
+        %ul.nav.nav-pills 
+          %li 
+            =link_to "Home", root_path
+          %li 
+            =link_to "Universities", institution_index_path
+          -if current_user.nil?
+            %li 
+              =link_to "Sign In", new_user_session_path
+            %li 
+              =link_to "Sign In With Facebook", user_omniauth_authorize_path(:facebook)
+            %li
+              =link_to "Sign in With Twitter", user_omniauth_authorize_path(:twitter)
+            %li
+              =link_to "Sign Up", new_user_registration_path
+          -else
+            %li 
+              =link_to "Sign Out", destroy_user_session_path, method: :delete 
+      .span8.offset2
+        =yield
