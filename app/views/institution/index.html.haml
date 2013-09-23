@@ -1,0 +1,4 @@
+%h1 Listing all Institutions 
+-@institutions.each do |institution|
+	%a{:href => "/institution/#{institution.id}"}=institution.name
+	%br
