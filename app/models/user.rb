@@ -1,7 +1,16 @@
 class User < ActiveRecord::Base
 
-	has_many :users_topics, foreign_key: "user_id"
-	has_many :topics, through: :users_topics
+	has_many :subscriptions
+	has_many :topics, through: :subscriptions
+	belongs_to :institution 
+
+	def following?(topic)
+		if subscriptions.find_by(topic_id: Topic.find(topic).id)
+			true
+		else
+			 false
+		end
+	end
 
   # Include default devise modules. Others available are:
   # :confirmable, :lockable, :timeoutable and :omniauthable

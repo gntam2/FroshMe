@@ -1,4 +1,4 @@
-class UsersTopics < ActiveRecord::Base
+class Subscription < ActiveRecord::Base
 	belongs_to :user
 	belongs_to :topic
 end

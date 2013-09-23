@@ -1,5 +1,16 @@
 %h1=@institution.name
-%h2 This University has the following topics
--@institution.topics.each do |topics|
-	%a{:href => "/institution/#{topics.institution_id}/topic/#{topics.id}"}=topics.name
-	%br
+-if current_user.institution_id == @institution.id
+	%p{:style => "font-style: italic"} You are currently assigned to this University
+-else
+
+%h4 This University has the following topics
+-@institution.topics.each do |topic|
+	%a{:href => "/institution/#{topic.institution_id}/topic/#{topic.id}"}=topic.name
+	-if topic.following?(current_user)
+		%p{:style => "font-style: italic"} Following
+	-else
+		=link_to :Follow, follow_path(:query => "#{topic.id}"), :style => "font-style: italic"
+	%br	
+%h4 This University has the following users
+-@institution.users.each do |user|
+	%p = user.email

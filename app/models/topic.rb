@@ -1,12 +1,19 @@
 class Topic < ActiveRecord::Base
 	belongs_to :institution
 
-	has_many :users_topics, foreign_key: "topic_id"
-	has_many :users, through: :users_topics
+	has_many :subscriptions
+	has_many :users, through: :subscriptions
 
+	def following?(user)
+		if subscriptions.find_by(user_id: User.find(user).id)
+			true
+		else
+			 false
+		end
+	end
 
-	def follow!(user, topic)
-		users_topics.create!(user_id: User.find(user).id, topic_id: Topic.find(topic).id)
+	def follow!(user)
+		subscriptions.create!(user_id: User.find(user).id)
 	end
 
 end

@@ -1,2 +1,8 @@
-%h1=@topic.name
-=link_to :Follow, follow_path(:query => "#{@topic.id}")
+-if @topic.nil? 
+	Your topic was not found.
+-else
+	%h2=@topic.name
+	-if !@topic.following?(current_user)
+		=link_to :Follow, follow_path(:query => "#{@topic.id}")
+	-else 
+		%p Following

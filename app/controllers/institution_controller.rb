@@ -6,7 +6,7 @@ class InstitutionController < ApplicationController
   end
 
   def show
-    @institution = Institution.find(params[:id])
+    @institution = Institution.find_by(id: params[:id])
   end
 
   def edit

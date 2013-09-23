@@ -21,7 +21,12 @@ class TopicController < ApplicationController
   end
 
   def show
-    @topic = Topic.find(params[:id])
+    topic = Topic.where(id: params[:id], institution_id: params[:institution_id])
+    if topic.empty?
+      @topic = nil
+    else
+      @topic = topic.first
+    end
   end
 
   def edit
