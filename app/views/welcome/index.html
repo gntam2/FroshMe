@@ -1,0 +1,37 @@
+<html>
+<head>
+	<script type="text/javascript">
+		<!--
+		var image1=new Image()
+		image1.src="http://www.sce.cornell.edu/common/images/gallery/2010/681.jpg"
+		var image2=new Image()
+		image2.src="http://atc1040.com/wp-content/uploads/2013/03/college_students.jpg"
+		var image3=new Image()
+		image3.src="http://shechive.files.wordpress.com/2011/10/college-life-27.jpg"
+		//-->
+	</script>
+</head>
+
+<body>
+	<img src="http://www.sce.cornell.edu/common/images/gallery/2010/681.jpg" name="slide" width="700px" height="451px" />
+		<script>
+			<!--
+			//variable that will increment through the images
+			var step=1
+			function slideit(){
+			//if browser does not support the image object, exit.
+			if (!document.images)
+			return
+			document.images.slide.src=eval("image"+step+".src")
+			if (step<3)
+			step++
+			else
+			step=1
+			//call function "slideit()" every 4.5 seconds
+			setTimeout("slideit()",4500)
+			}
+			slideit()
+			//-->
+		</script>
+</body>
+</html>
