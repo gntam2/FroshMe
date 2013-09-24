@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20130922231248) do
+ActiveRecord::Schema.define(version: 20130924010341) do
 
 <<<<<<< HEAD
 =======
@@ -57,6 +57,11 @@ ActiveRecord::Schema.define(version: 20130922231248) do
     t.string   "uid"
     t.integer  "topic_id"
     t.integer  "institution_id"
+    t.string   "fname"
+    t.string   "lname"
+    t.string   "facebookurl"
+    t.string   "twitterurl"
+    t.string   "linkedinurl"
   end
 
   add_index "users", ["email"], name: "index_users_on_email", unique: true, using: :btree

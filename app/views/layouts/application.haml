@@ -7,7 +7,7 @@
     =csrf_meta_tags
   %body
     .row
-      .span8.offset2
+      .span10.offset2
         %h1 Welcome to Frosh
         -if !flash[:notice].nil?
           .alert=flash[:notice]
@@ -22,6 +22,8 @@
             %li
               =link_to image_tag('http://www.tweekly.fm/media/image/login-facebook.png'), user_omniauth_authorize_path(:facebook)
           -else
+            %li
+              =link_to "Create a Topic", "/institution/1/topic/new"
             %li 
               =link_to "Home", root_path
             %li 

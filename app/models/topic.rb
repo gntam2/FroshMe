@@ -16,4 +16,8 @@ class Topic < ActiveRecord::Base
 		subscriptions.create!(user_id: User.find(user).id)
 	end
 
+	def unfollow!(user)
+		subscriptions.find_by(user_id: user.id).destroy!
+	end
+
 end

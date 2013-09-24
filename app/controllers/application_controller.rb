@@ -10,11 +10,11 @@ class ApplicationController < ActionController::Base
   protected
 
   def configure_permitted_parameters
-  	devise_parameter_sanitizer.for(:sign_up) { |u| u.permit(:email, :institution_id, :password, :reset_password_token, :reset_password_sent_at, :remember_created_at, :provider, :uid, :topic_id) }
+  	devise_parameter_sanitizer.for(:sign_up) { |u| u.permit(:email, :institution_id, :password, :reset_password_token, :reset_password_sent_at, :remember_created_at, :provider, :uid, :topic_id, :fname, :lname, :facebookurl, :twitterurl, :linkedinurl) }
   end
 
   def after_sign_in_path_for(resource)
-  	institution_path(resource)
+  	root_path(resource)
   end
 
 end

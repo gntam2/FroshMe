@@ -1,16 +1,26 @@
 %h1=@institution.name
--if current_user.institution_id == @institution.id
-	%p{:style => "font-style: italic"} You are currently assigned to this University
--else
+-if !current_user.nil?
+	-if current_user.institution_id == @institution.id
+		%p{:style => "font-style: italic"} You are currently assigned to this University
+	-else
+-else 
 
 %h4 This University has the following topics
 -@institution.topics.each do |topic|
-	%a{:href => "/institution/#{topic.institution_id}/topic/#{topic.id}"}=topic.name
-	-if topic.following?(current_user)
-		%p{:style => "font-style: italic"} Following
-	-else
-		=link_to :Follow, follow_path(:query => "#{topic.id}"), :style => "font-style: italic"
-	%br	
+	%a{:href => "/institution/#{topic.institution_id}/topic/#{topic.id}", :style => "display: inline;"}=topic.name
+	-if !current_user.nil?
+		-if topic.following?(current_user)
+			=link_to :Unfollow, unfollow_path(:query => "#{topic.id}"), :style => "font-style: italic"
+		-else
+			=link_to :Follow, follow_path(:query => "#{topic.id}"), :style => "font-style: italic"
+		%br	
 %h4 This University has the following users
 -@institution.users.each do |user|
-	%p = user.email
+	%p{:style => "display: inline;"}=user.fname + " " +user.lname
+	%a{:href => "#{user.facebookurl}", :target => "_blank"}
+		%img{:src => "http://www.besttechie.com/wp-content/uploads/2012/12/facebook-icon.png", :width => "25px", :style => "display: inline; padding-left: 10px;"}
+	%a{:href => "#{user.twitterurl}", :target => "_blank"}
+		%img{:src => "https://abs.twimg.com/a/1379971261/images/resources/twitter-bird-blue-on-white.png", :width => "30px", :style => "display: inline; padding-left: 5px;"}
+	%a{:href => "#{user.linkedinurl}", :target => "_blank"}
+		%img{:src => "http://images.pcworld.com/images/article/2011/05/linkedin-thumb-5172915.png", :width => "30px", :style => "padding-left: -2px;"}
+	%br
