@@ -13,6 +13,12 @@
 
 ActiveRecord::Schema.define(version: 20130922231248) do
 
+<<<<<<< HEAD
+=======
+  # These are extensions that must be enabled in order to support this database
+  enable_extension "plpgsql"
+
+>>>>>>> 909660e3b9338728804e385b4c4cce7f47c61eee
   create_table "institutions", force: true do |t|
     t.string   "name"
     t.integer  "location_id"

@@ -73,7 +73,10 @@ GEM
     minitest (4.7.5)
     multi_json (1.8.0)
     multipart-post (1.2.0)
+<<<<<<< HEAD
     mysql2 (0.3.13)
+=======
+>>>>>>> 909660e3b9338728804e385b4c4cce7f47c61eee
     oauth (0.4.7)
     oauth2 (0.8.1)
       faraday (~> 0.8)
@@ -161,7 +164,10 @@ DEPENDENCIES
   haml-rails
   jbuilder (~> 1.2)
   jquery-rails
+<<<<<<< HEAD
   mysql2
+=======
+>>>>>>> 909660e3b9338728804e385b4c4cce7f47c61eee
   omniauth
   omniauth-facebook
   omniauth-twitter

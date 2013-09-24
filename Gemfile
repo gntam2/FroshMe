@@ -13,7 +13,10 @@ gem 'omniauth'
 gem 'omniauth-facebook'
 gem 'omniauth-twitter'
 gem 'pg'
+<<<<<<< HEAD
 gem 'mysql2'
+=======
+>>>>>>> 909660e3b9338728804e385b4c4cce7f47c61eee
 
 # Use sqlite3 as the database for Active Record
 gem 'sqlite3'
