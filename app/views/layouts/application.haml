@@ -18,16 +18,18 @@
             %li
               =link_to "Sign Up", new_user_registration_path
             %li 
+              =link_to "Universities", institution_index_path
+            %li 
               =link_to image_tag('http://itweet.net/web/images/sign-in-with-twitter-l.png'), user_omniauth_authorize_path(:twitter)
             %li
               =link_to image_tag('http://www.tweekly.fm/media/image/login-facebook.png'), user_omniauth_authorize_path(:facebook)
           -else
-            %li
-              =link_to "Create a Topic", "/institution/1/topic/new"
             %li 
               =link_to "Home", root_path
             %li 
               =link_to "Universities", institution_index_path
+            %li
+              =link_to "Create a Topic", "/institution/1/topic/new"
             %li 
               =link_to "Sign Out", destroy_user_session_path, method: :delete 
       .span10.offset2
