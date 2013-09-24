@@ -5,18 +5,13 @@
     =stylesheet_link_tag "application", media: "all", "data-turbolinks-track" => true
     =javascript_include_tag :application
     =csrf_meta_tags
-<<<<<<< HEAD
   %body
-=======
-  %body 
->>>>>>> 909660e3b9338728804e385b4c4cce7f47c61eee
     .row
       .span8.offset2
         %h1 Welcome to Frosh
         -if !flash[:notice].nil?
           .alert=flash[:notice]
         %ul.nav.nav-pills 
-<<<<<<< HEAD
           -if current_user.nil?
             %li 
               =link_to "Sign In", new_user_session_path
@@ -32,23 +27,6 @@
             %li 
               =link_to "Universities", institution_index_path
             %li 
-=======
-          %li 
-            =link_to "Home", root_path
-          %li 
-            =link_to "Universities", institution_index_path
-          -if current_user.nil?
-            %li 
-              =link_to "Sign In", new_user_session_path
-            %li 
-              =link_to "Sign In With Facebook", user_omniauth_authorize_path(:facebook)
-            %li
-              =link_to "Sign in With Twitter", user_omniauth_authorize_path(:twitter)
-            %li
-              =link_to "Sign Up", new_user_registration_path
-          -else
-            %li 
->>>>>>> 909660e3b9338728804e385b4c4cce7f47c61eee
               =link_to "Sign Out", destroy_user_session_path, method: :delete 
       .span10.offset2
         =yield
